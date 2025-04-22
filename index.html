@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الألعاب</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f3f3f3;
+            color: #111;
+        }
+
+        header {
+            background: #232f3e;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            margin: 0 10px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background: #febd69;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background: #f3a847;
+        }
+
+        .login-form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+        }
+
+        .login-form input {
+            padding: 8px;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .login-form button {
+            padding: 8px 15px;
+            background: #febd69;
+            border: none;
+            border-radius: 3px;
+            color: #111;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background: #f3a847;
+        }
+
+        nav {
+            background: #37475a;
+            padding: 10px 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #febd69;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .main-content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #111;
+        }
+
+        .product-card p {
+            color: #B12704;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-card button {
+            padding: 8px 15px;
+            background: #febd69;
+            border: none;
+            border-radius: 3px;
+            color: #111;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .product-card button:hover {
+            background: #f3a847;
+        }
+
+        footer {
+            background: #232f3e;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #febd69;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-bar {
+                margin: 10px 0;
+                width: 100%;
+            }
+
+            .login-form {
+                flex-direction: column;
+                width: 100%;
+                gap: 5px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="https://i.imgur.com/vM7HKLu.jpg" alt="شعار المتجر">
+        </a>
+        <div class="search-bar">
+            <input type="text" placeholder="ابحث عن منتج أو لعبة..." id="searchInput">
+            <button onclick="searchProduct()">بحث</button>
+        </div>
+        <div class="login-form">
+            <input type="text" placeholder="البريد الإلكتروني" id="email">
+            <input type="password" placeholder="كلمة المرور" id="password">
+            <button onclick="login()">تسجيل الدخول</button>
+            <button onclick="logout()">تسجيل الخروج</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="register.html">التسجيل</a>
+        <a href="account.html">حسابي</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a href="categories.html">التصنيفات</a>
+        <a href="product.html">المنتجات</a>
+        <a href="favorites.html">المفضلة</a>
+        <a href="cart.html">السلة</a>
+    </nav>
+
+    <div class="main-content">
+        <h1>مرحبًا بك في متجر الألعاب!</h1>
+        <div class="products-grid" id="productsGrid"></div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2025 متجر الألعاب</p>
+        <div>
+            <a href="about.html">من نحن</a>
+            <a href="contact.html">اتصل بنا</a>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Roblox",
+                price: "100 EGP",
+                image: "https://i.imgur.com/1ZwprqA.jpg",
+            },
+            {
+                id: 2,
+                name: "eFootball™ ",
+                price: "150 EGP",
+                image: "https://i.imgur.com/L452szt.jpeg",
+            },
+            {
+                id: 3,
+                name: "Call of Duty®: Warzone™",
+                price: "400 EGP",
+                image: "https://i.imgur.com/sa6dMoi.jpeg",
+            },
+            {
+                id: 4,
+                name: "Asphalt 8: Airborne ",
+                price: "300 EGP",
+                image: "https://i.imgur.com/OY7pC2Q.jpeg",
+            },
+            {
+                id: 5,
+                name: "Code of War",
+                price: "500 EGP",
+                image: "https://i.imgur.com/ucuKqsV.png",
+            },
+            {
+                id: 6,
+                name: "SpongeBob: Krusty",
+                price: "Free",
+                image: "https://i.imgur.com/cyG2O9p.jpeg",
+            },
+            {
+                id: 7,
+                name: "Hill Climb Racing ",
+                price: "Free",
+                image: "https://i.imgur.com/i79GAyf.jpeg",
+            },
+            {
+                id: 8,
+                name: "Fortnite ",
+                price: "700 EGP",
+                image: "https://i.imgur.com/BF430jo.jpeg",
+            },
+            {
+                id: 9,
+                name: "	San Andreas Multiplayer",
+                price: "500 EGP",
+                image: "https://i.imgur.com/oeNGkOG.jpeg",
+            },
+            {
+                id: 10,
+                name: "Wings of War:",
+                price: "Free",
+                image: "https://i.imgur.com/3iVeCn9.jpeg",
+            },
+            {
+                id: 11,
+                name: "	tuk-tuk auto rixa",
+                price: "500 EGP",
+                image: "https://i.imgur.com/xuUtvEt.jpeg",
+            },
+            {
+                id: 12,
+                name: "Real Pool 3D",
+                price: "Free",
+                image: "https://i.imgur.com/aSqXVYI.jpeg",
+            },
+        ];
+
+        function displayProducts() {
+            const productsGrid = document.getElementById("productsGrid");
+            productsGrid.innerHTML = "";
+            products.forEach(product => {
+                const productCard = `
+                    <div class="product-card">
+                        <a href="product.html?id=${product.id}"><img src="${product.image}" alt="${product.name}"></a>
+                        <h3>${product.name}</h3>
+                        <p>${product.price}</p>
+                        <button onclick="addToCart(${product.id})">إضافة إلى السلة</button>
+                        <button onclick="addToFavorites(${product.id})">إضافة إلى المفضلة</button>
+                    </div>
+                `;
+                productsGrid.innerHTML += productCard;
+            });
+        }
+
+        function searchProduct() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(searchInput)
+            );
+            const productsGrid = document.getElementById("productsGrid");
+            productsGrid.innerHTML = "";
+            filteredProducts.forEach(product => {
+                const productCard = `
+                    <div class="product-card">
+                        <a href="product.html?id=${product.id}"><img src="${product.image}" alt="${product.name}"></a>
+                        <h3>${product.name}</h3>
+                        <p>${product.price}</p>
+                        <button onclick="addToCart(${product.id})">إضافة إلى السلة</button>
+                        <button onclick="addToFavorites(${product.id})">إضافة إلى المفضلة</button>
+                    </div>
+                `;
+                productsGrid.innerHTML += productCard;
+            });
+        }
+
+        function addToCart(productId) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(productId);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`تم إضافة المنتج رقم ${productId} إلى السلة!`);
+        }
+
+        function addToFavorites(productId) {
+            let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+            if (!favorites.includes(productId)) {
+                favorites.push(productId);
+                localStorage.setItem("favorites", JSON.stringify(favorites));
+                alert(`تم إضافة المنتج رقم ${productId} إلى المفضلة!`);
+            } else {
+                alert("المنتج موجود بالفعل في المفضلة!");
+            }
+        }
+
+        function login() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            if (email && password) {
+                alert("تم تسجيل الدخول بنجاح!");
+            } else {
+                alert("يرجى إدخال البريد الإلكتروني وكلمة المرور.");
+            }
+        }
+
+        function logout() {
+            alert("تم تسجيل الخروج.");
+        }
+
+        displayProducts();
+    </script>
+</body>
+</html>

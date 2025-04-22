@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التسجيل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f3f3f3;
+            color: #111;
+        }
+
+        header {
+            background: #232f3e;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            margin: 0 10px;
+        }
+
+        nav {
+            background: #37475a;
+            padding: 10px 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #febd69;
+        }
+
+        .register-form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-form h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .register-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .register-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .register-form button {
+            width: 100%;
+            padding: 10px;
+            background: #febd69;
+            border: none;
+            border-radius: 3px;
+            color: #111;
+            cursor: pointer;
+        }
+
+        .register-form button:hover {
+            background: #f3a847;
+        }
+
+        footer {
+            background: #232f3e;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #febd69;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .register-form {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="https://i.imgur.com/vM7HKLu.jpg" alt="شعار المتجر">
+        </a>
+    </header>
+
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="account.html">حسابي</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a href="categories.html">التصنيفات</a>
+        <a href="product.html">المنتجات</a>
+        <a href="favorites.html">المفضلة</a>
+        <a href="cart.html">السلة</a>
+    </nav>
+
+    <div class="register-form">
+        <h1>إنشاء حساب</h1>
+        <label for="firstName">الاسم الأول</label>
+        <input type="text" id="firstName" placeholder="أدخل الاسم الأول">
+        <label for="lastName">الاسم الأخير</label>
+        <input type="text" id="lastName" placeholder="أدخل الاسم الأخير">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" placeholder="أدخل البريد الإلكتروني">
+        <label for="password">كلمة المرور</label>
+        <input type="password" id="password" placeholder="أدخل كلمة المرور">
+        <label for="confirmPassword">تأكيد كلمة المرور</label>
+        <input type="password" id="confirmPassword" placeholder="أعد إدخال كلمة المرور">
+        <label for="country">الدولة</label>
+        <input type="text" id="country" placeholder="أدخل الدولة">
+        <label for="address">العنوان</label>
+        <input type="text" id="address" placeholder="أدخل العنوان">
+        <button onclick="register()">إنشاء حساب</button>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2025 متجر الألعاب</p>
+        <div>
+            <a href="about.html">من نحن</a>
+            <a href="contact.html">اتصل بنا</a>
+        </div>
+    </footer>
+
+    <script>
+        function register() {
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const country = document.getElementById("country").value;
+            const address = document.getElementById("address").value;
+
+            if (password !== confirmPassword) {
+                alert("كلمة المرور غير متطابقة!");
+                return;
+            }
+
+            if (firstName && lastName && email && password && country && address) {
+                alert("تم إنشاء الحساب بنجاح!");
+                window.location.href = "index.html";
+            } else {
+                alert("يرجى ملء جميع الحقول.");
+            }
+        }
+    </script>
+</body>
+</html>

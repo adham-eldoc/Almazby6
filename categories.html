@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التصنيفات</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f3f3f3;
+            color: #111;
+        }
+
+        header {
+            background: #232f3e;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            margin: 0 10px;
+        }
+
+        nav {
+            background: #37475a;
+            padding: 10px 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #febd69;
+        }
+
+        .categories-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .categories-content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 10px;
+        }
+
+        .categories-list a {
+            color: #0066c0;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .categories-list a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #232f3e;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #febd69;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="https://i.imgur.com/vM7HKLu.jpg" alt="شعار المتجر">
+        </a>
+    </header>
+
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="register.html">التسجيل</a>
+        <a href="account.html">حسابي</a>
+        <a href="about.html">من نحن</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a href="product.html">المنتجات</a>
+        <a href="favorites.html">المفضلة</a>
+        <a href="cart.html">السلة</a>
+    </nav>
+
+    <div class="categories-content">
+        <h1>التصنيفات</h1>
+        <ul class="categories-list">
+            <li><a href="product.html">ألعاب المغامرة</a></li>
+            <li><a href="product.html">ألعاب السباق</a></li>
+            <li><a href="product.html">ألعاب الأكشن</a></li>
+            <li><a href="product.html">ألعاب الاستراتيجية</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2025 متجر الألعاب</p>
+        <div>
+            <a href="about.html">من نحن</a>
+            <a href="contact.html">اتصل بنا</a>
+        </div>
+    </footer>
+</body>
+</html>
